@@ -1,0 +1,2 @@
+module Veml7700:
+    signal gnd
