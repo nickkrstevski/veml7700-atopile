@@ -1,0 +1,11 @@
+component VEML7700_TT:
+    # component VEML7700-TT
+    footprint = "SENSOR-SMD_EML7700-TT"
+    lcsc_id = "C1850416"
+    mpn = "C1850416"
+    # pins
+    signal SCL ~ pin 1
+    signal VDD ~ pin 2
+    signal GND ~ pin 3
+    signal SDA ~ pin 4
+

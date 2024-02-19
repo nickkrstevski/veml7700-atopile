@@ -1,2 +1,30 @@
-module Veml7700:
-    signal gnd
+import Capacitor from "generics/capacitors.ato"
+import Power from "generics/interfaces.ato"
+import I2C from "generics/interfaces.ato"
+
+component _VEML7700_TT:
+    # component VEML7700-TT
+    footprint = "SENSOR-SMD_EML7700-TT"
+    lcsc_id = "C1850416"
+    mpn = "C1850416"
+    # pins
+    signal SCL ~ pin 1
+    signal VDD ~ pin 2
+    signal GND ~ pin 3
+    signal SDA ~ pin 4
+
+module VEML7700:
+    ic = new _VEML7700_TT
+    
+    power = new Power # 3V3
+    power.vcc ~ ic.VDD
+    power.gnd ~ ic.GND
+
+    input_cap = new Capacitor
+    input_cap.value = 100nF +/- 20%
+    input_cap.package = "0603"
+    input_cap.power ~ power
+
+    i2c = new I2C
+    i2c.sda ~ ic.SDA
+    i2c.scl ~ ic.SCL
