@@ -23,6 +23,7 @@ module VEML7700:
     input_cap = new Capacitor
     input_cap.value = 100nF +/- 20%
     input_cap.package = "0603"
+    input_cap.voltage = 10V to 50V
     input_cap.power ~ power
 
     i2c = new I2C
