@@ -29,3 +29,4 @@ module VEML7700:
     i2c = new I2C
     i2c.sda ~ ic.SDA
     i2c.scl ~ ic.SCL
+    i2c.gnd ~ power.gnd
